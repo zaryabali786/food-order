@@ -3,23 +3,25 @@ import {MenuItem} from "@/models/MenuItem";
 import mongoose from "mongoose";
 
 export async function POST(req) {
+  console.log("pizza",req)
   mongoose.connect(process.env.MONGO_URL);
   const data = await req.json();
   if (await isAdmin()) {
     const menuItemDoc = await MenuItem.create(data);
     return Response.json(menuItemDoc);
   } else {
-    return Response.json(menuItemDoc);
+    return Response.json({});
   }
 }
 
 export async function PUT(req) {
+  console.log(req)
   mongoose.connect(process.env.MONGO_URL);
   if (await isAdmin()) {
     const {_id, ...data} = await req.json();
-    const menuItemDoc =  await MenuItem.findByIdAndUpdate(_id, data);
+    await MenuItem.findByIdAndUpdate(_id, data);
   }
-  return Response.json(menuItemDoc);
+  return Response.json({});
 }
 
 export async function GET() {

@@ -3,10 +3,6 @@ import {User} from '@/models/User';
 import NextAuth, {getServerSession} from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
 import bcrypt from "bcryptjs";
-
-import {UserInfo} from "@/models/UserInfo";
-
-
 export const authOptions = {
   providers: [
     CredentialsProvider({
@@ -41,9 +37,7 @@ export const authOptions = {
     strategy: "jwt",
   },
   secret: process.env.secret,
-  pages: {
-    signIn: "/",
-  },
+
 };
 
 export async function isAdmin() {

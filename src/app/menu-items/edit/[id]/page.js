@@ -30,14 +30,12 @@ export default function EditMenuItemPage() {
   async function handleFormSubmit(ev, data) {
     ev.preventDefault();
     data = {...data, _id:id};
-    console.log(data,"data ha yeh")
     const savingPromise = new Promise(async (resolve, reject) => {
       const response = await fetch('/api/menu-items', {
         method: 'PUT',
         body: JSON.stringify(data),
         headers: { 'Content-Type': 'application/json' },
       });
-      debugger
       if (response.ok)
         resolve();
       else
