@@ -1,5 +1,4 @@
-import Plus from "@/components/icons/Plus";
-import Trash from "@/components/icons/Trash";
+
 import EditableImage from "@/components/layout/EditableImage";
 import MenuItemPriceProps from "@/components/layout/MenuItemPriceProps";
 import {useEffect, useState} from "react";
