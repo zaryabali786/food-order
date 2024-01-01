@@ -1,4 +1,5 @@
-import { connectMongoDB } from "@/libs/mongoConnect";
+import { clientPromise } from "@/libs/mongo";
+
 import {User} from '@/models/User';
 import NextAuth, {getServerSession} from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
@@ -41,7 +42,7 @@ import bcrypt from "bcryptjs";
 // };
 export const authOptions = {
   secret: process.env.SECRET,
-  adapter: MongoDBAdapter(connectMongoDB),
+  adapter: MongoDBAdapter(clientPromise),
   providers: [
 
     CredentialsProvider({
@@ -90,7 +91,6 @@ export async function isAdmin() {
 }
 
 const handler = NextAuth(authOptions);
-const handler1 = NextAuth(authOptions);
 
 
-export { handler1 as GET, handler as POST };
+export { handler as GET, handler as POST };
