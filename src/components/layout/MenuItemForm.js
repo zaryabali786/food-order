@@ -16,6 +16,25 @@ export default function MenuItemForm({onSubmit,menuItem}) {
     setExtraIngredientPrices,
   ] = useState(menuItem?.extraIngredientPrices || []);
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
   useEffect(() => {
     fetch('/api/categories').then(res => {
       res.json().then(categories => {
