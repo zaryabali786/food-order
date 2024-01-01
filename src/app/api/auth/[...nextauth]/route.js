@@ -40,6 +40,9 @@ export const authOptions = {
 
 };
 
+
+
+
 export async function isAdmin() {
   const session = await getServerSession(authOptions);
   const email = session?.user?.email;
