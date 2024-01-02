@@ -1,12 +1,14 @@
-import { connectMongoDB } from "@/libs/mongoConnect";
+import { connectMongoDB,clientPromise } from "@/libs/mongoConnect";
 import {User} from '@/models/User';
 import NextAuth, {getServerSession} from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
 import bcrypt from "bcryptjs";
+import { MongoDBAdapter } from "@auth/mongodb-adapter"
 export const authOptions = {
   providers: [
     CredentialsProvider({
       name: "credentials",
+      adapter: MongoDBAdapter(clientPromise),
       credentials: {},
 
       async authorize(credentials) {

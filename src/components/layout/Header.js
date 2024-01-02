@@ -4,7 +4,7 @@ import Bars2 from "@/components/icons/Bars2";
 import ShoppingCart from "@/components/icons/ShoppingCart";
 import {signOut, useSession} from "next-auth/react";
 import Link from "next/link";
-import {useContext, useState} from "react";
+import {useContext, useState,useEffect} from "react";
 
  function  AuthLinks({status, userName}) {
   console.log(status,"ssa")
@@ -36,7 +36,14 @@ import {useContext, useState} from "react";
 
 // eslint-disable-next-line @next/next/no-async-client-component
 export default  function Header() {
-
+  useEffect(() => {
+    
+    // Retrieve user data from localStorage
+    const userData = window.localStorage.getItem('user');
+    
+    // Use userData as needed, e.g., update the UI with user information
+    console.log(userData,"new add");
+  }, []);
   const session = useSession();
   // const aa = await getServerSession(authOptions);
 console.log(session,"dn new")

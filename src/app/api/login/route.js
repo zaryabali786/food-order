@@ -1,7 +1,7 @@
 import { User } from "@/models/User";
 import bcrypt from "bcrypt";
 import mongoose from "mongoose";
-
+import { NextResponse } from "next/server";
 export async function POST(req) {
     const body = await req.json();
     const email = body?.email;
@@ -14,18 +14,12 @@ console.log(body.email,password,"body ha yeh")
 
     const user = await User.findOne({ email });
     const passwordOk = user && bcrypt.compareSync(password, user.password);
-    console.log(passwordOk, "check ha");
+    console.log(passwordOk, "check ha",);
     if (passwordOk) {
-        return   Response.json({
-            status: "authenticated",
-            user:user,
-          })
+        return   NextResponse.json({data:true})
       
     }
 
-    return   Response.json({
-        status: "unauthenticated",
-        user:user,
-      })
+    return   NextResponse.json({status: "unauthenticated",user:user})
   
   }

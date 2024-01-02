@@ -14,7 +14,20 @@ export default function LoginPage() {
 
     await signIn('credentials', {email, password, callbackUrl: '/'});
 
-    setLoginInProgress(false);
+    // const response = await fetch('/api/login', {
+    //   method: 'POST',
+    //   body: JSON.stringify({ email, password }),
+    //   headers: { 'Content-Type': 'application/json' },
+    // });
+
+    // if (response) {
+    // // window.localStorage.setItem('user', JSON.stringify(response.user));
+    // setLoginInProgress(false);
+
+    //   // On successful login, you can redirect or perform other actions
+    //   console.log('Login successful',response);
+    // }
+
   }
   return (
     <section className="mt-8">
