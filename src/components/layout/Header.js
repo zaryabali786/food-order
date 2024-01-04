@@ -48,8 +48,8 @@ export default  function Header() {
   // const aa = await getServerSession(authOptions);
 console.log(session,"dn new")
 
-  const status = session?.status;
-  const userData = session.data?.user;
+  const status = "authenticated";
+  const userData = "Zaryab Ali"
   let userName = userData?.name || userData?.email;
   const {cartProducts} = useContext(CartContext);
   const [mobileNavOpen, setMobileNavOpen] = useState(false);
