@@ -17,7 +17,7 @@ export default function ProfilePage() {
   const [user, setUser] = useState(null);
   const [isAdmin, setIsAdmin] = useState(false);
   const [profileFetched, setProfileFetched] = useState(false);
-  const {status} = session;
+  const {status} = "authenticated";
 
   useEffect(() => {
     if (status === 'authenticated') {
