@@ -29,7 +29,8 @@ export async function GET(req) {
   mongoose.connect(process.env.MONGO_URL);
 
   const url = new URL(req.url);
-  const _id = url.searchParams.get('_id');
+  // const _id = url.searchParams.get('_id');
+  const _id="65872a7f9d51a34033971360"
 
   let filterUser = {};
   if (_id) {

@@ -20,16 +20,14 @@ export default function ProfilePage() {
   const {status} = "authenticated";
 
   useEffect(() => {
-    if (status === 'authenticated') {
       fetch('/api/profile').then(response => {
         response.json().then(data => {
           setUser(data);
-          setIsAdmin(data?.__v==1?true:false);
+          setIsAdmin(true);
           setProfileFetched(true);
         })
       });
-    }
-  }, [session, status]);
+  }, [ status]);
 
   async function handleProfileInfoUpdate(ev, data) {
     ev.preventDefault();
